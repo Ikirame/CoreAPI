@@ -1,23 +1,30 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace WebAPI
 {
-    public class Program
+    public static class Program
     {
+        #region Methods
+        
+        /// <summary>
+        /// Entry point of an ASP.NET Core application.
+        /// </summary>
+        /// <param name="args">Array with command line arguments</param>
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        /// <summary>
+        /// Configure an ASP.NET Core application (logging, files, etc...).
+        /// </summary>
+        /// <param name="args">Array with command line arguments</param>
+        /// <returns>Interface of the host created</returns>
+        private static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+        
+        #endregion
     }
 }
