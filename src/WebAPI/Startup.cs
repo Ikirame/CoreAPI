@@ -1,46 +1,61 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
+using WebAPI.Extensions;
 
 namespace WebAPI
 {
     public class Startup
     {
+        #region Fields
+
+        private IConfiguration _configuration;
+
+        #endregion
+
+        #region Constructors
+
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        #endregion
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        #region Methods
+
+        /// <summary>
+        /// This method gets called by the runtime.
+        /// Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services">Collection to register services</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ConfigureCorsIntegration();
+            services.ConfigureIISIntegration();
+
             services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebAPI", Version = "v1"}); });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime.
+        /// Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app">Interface for application builder</param>
+        /// <param name="env">Interface for web host environment</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCorsIntegration();
+            app.UseIISIntegration();
 
             app.UseRouting();
 
@@ -48,5 +63,7 @@ namespace WebAPI
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
+
+        #endregion
     }
 }
