@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <i>ASP.NET Core 3.1+ WebAPI template</i>
+  <i>ASP.NET Core 5.0+ WebAPI template</i>
 </p>
 
 ##

@@ -7,11 +7,11 @@ using WebAPI.Extensions;
 
 namespace WebAPI
 {
-    public class Startup
+    internal class Startup
     {
         #region Fields
 
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         #endregion
 
@@ -34,7 +34,6 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureCorsIntegration();
-            services.ConfigureIISIntegration();
 
             services.AddControllers();
         }
@@ -55,7 +54,6 @@ namespace WebAPI
             app.UseHttpsRedirection();
 
             app.UseCorsIntegration();
-            app.UseIISIntegration();
 
             app.UseRouting();
 
