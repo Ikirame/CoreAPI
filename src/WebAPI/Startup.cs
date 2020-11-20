@@ -35,6 +35,8 @@ namespace WebAPI
         {
             services.ConfigureCorsIntegration();
 
+            services.AddSerilog(_configuration);
+
             services.AddControllers();
         }
 
