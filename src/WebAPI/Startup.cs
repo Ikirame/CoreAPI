@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAPI.Extensions;
+using WebAPI.Extensions.Logging;
 
 namespace WebAPI
 {
@@ -34,6 +35,8 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureCorsIntegration();
+
+            services.ConfigureSerilog(_configuration);
 
             services.AddControllers();
         }
