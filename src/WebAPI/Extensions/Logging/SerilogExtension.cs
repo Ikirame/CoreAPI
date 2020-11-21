@@ -3,16 +3,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
-namespace WebAPI.Extensions
+namespace WebAPI.Extensions.Logging
 {
-    public static class LoggingExtension
+    public static class SerilogExtension
     {
+        #region Methods
+
         /// <summary>
         /// Configure serilog logging system
         /// </summary>
         /// <param name="services">Collection to register services</param>
         /// <param name="configuration">Configuration file loaded with settings</param>
-        public static void AddSerilog(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigureSerilog(this IServiceCollection services, IConfiguration configuration)
         {
             var newConfiguration = new LoggerConfiguration()
                 .ReadFrom.Configuration(configuration)
@@ -24,5 +26,7 @@ namespace WebAPI.Extensions
                 loggingBuilder.AddSerilog(newConfiguration, true);
             });
         }
+
+        #endregion
     }
 }
