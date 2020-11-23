@@ -3,6 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace WebAPI.Extensions
 {
+    /// <summary>
+    /// Extensions class to configure and use CORS integration
+    /// </summary>
     public static class CorsExtension
     {
         #region Fields

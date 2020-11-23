@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebAPI.Extensions;
 using WebAPI.Extensions.Logging;
+using WebAPI.Extensions.Modules;
 
 namespace WebAPI
 {
@@ -38,6 +39,8 @@ namespace WebAPI
 
             services.ConfigureSerilog(_configuration);
 
+            services.ConfigureSwagger(_configuration);
+
             services.AddControllers();
         }
 
@@ -57,6 +60,8 @@ namespace WebAPI
             app.UseHttpsRedirection();
 
             app.UseCorsIntegration();
+
+            app.UseSwaggerModule();
 
             app.UseRouting();
 

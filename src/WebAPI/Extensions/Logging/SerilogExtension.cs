@@ -5,6 +5,9 @@ using Serilog;
 
 namespace WebAPI.Extensions.Logging
 {
+    /// <summary>
+    /// Extensions class to configure and use Serilog logging module
+    /// </summary>
     public static class SerilogExtension
     {
         #region Methods
