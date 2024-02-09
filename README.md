@@ -7,7 +7,7 @@
 
 ##
 
-CoreAPI is a ASP.NET 7.0+ WebAPI template wrote in C#. The design goal of this template is to provide a usable ASP.NET architectured solution to make some REST API.
+CoreAPI is a ASP.NET 8.0+ WebAPI template wrote in C#. The design goal of this template is to provide a usable ASP.NET architectured solution to make some REST API.
 
 ## Getting started
 
