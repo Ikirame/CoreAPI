@@ -1,7 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Api.Filters;
-using Api.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +16,10 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.MapStaticAssets();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 app.MapControllers();
 
 app.Run();
