@@ -4,7 +4,7 @@ using System.Net;
 namespace Api.ProblemDetails;
 
 [ExcludeFromCodeCoverage]
-public sealed class InternalServerErrorProblemDetails : Microsoft.AspNetCore.Mvc.ProblemDetails
+internal sealed class InternalServerErrorProblemDetails : Microsoft.AspNetCore.Mvc.ProblemDetails
 {
     public InternalServerErrorProblemDetails()
     {

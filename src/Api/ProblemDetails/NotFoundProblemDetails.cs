@@ -4,7 +4,7 @@ using System.Net;
 namespace Api.ProblemDetails;
 
 [ExcludeFromCodeCoverage]
-public sealed class NotFoundProblemDetails : Microsoft.AspNetCore.Mvc.ProblemDetails
+internal sealed class NotFoundProblemDetails : Microsoft.AspNetCore.Mvc.ProblemDetails
 {
     public NotFoundProblemDetails(string detail)
     {

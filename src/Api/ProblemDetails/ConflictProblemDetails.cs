@@ -4,7 +4,7 @@ using System.Net;
 namespace Api.ProblemDetails;
 
 [ExcludeFromCodeCoverage]
-public sealed class ConflictProblemDetails : Microsoft.AspNetCore.Mvc.ProblemDetails
+internal sealed class ConflictProblemDetails : Microsoft.AspNetCore.Mvc.ProblemDetails
 {
     public ConflictProblemDetails(string detail)
     {
